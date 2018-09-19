@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="ajax.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload=function (){
+        var oBtn1=document.getElementById('btn1');
+        var oBtn2=document.getElementById('btn2');
+
+        oBtn1.onclick=function (){
+          ajax({
+            url: 'http://localhost:8080/user',
+            data: {name: 'blue', pass: '123456'},
+            type: 'get',
+            success: function (){
+              alert('成功');
+            },
+            error: function (){
+              alert('失败');
+            }
+          });
+        }
+
+        oBtn2.onclick=function (){
+          ajax({
+            url: 'http://localhost:8080/article',
+            data: {name: 'basdffsdlue', pass: 'werwerwe'},
+            type: 'post',
+            success: function (){
+              alert('成功');
+            },
+            error: function (){
+              alert('失败');
+            }
+          });
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <input type="button" id="btn1" value="GET方式请求">
+    <input type="button" id="btn2" value="POST方式请求">
+  </body>
+</html>
